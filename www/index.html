@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boda de Cristian & María</title>
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <link rel="canonical" href="https://www.cristianymaria.es/" />
+
+  <!-- Enlaza tu archivo de estilos personalizado -->
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <!-- Diseño de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Archivos script.js -->
+  <script type="module" src="js/attendance.js"></script>
+  <script src="js/welcome.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS6xyVqcLBq9jq1HbTSF-Q4tNr8rQriW8&callback=initMap&libraries=&v=weekly"
+    async defer></script>
+
+</head>
+
+<body class="custom-body">
+
+  <header></header>
+
+  <nav></nav>
+
+  <button id="play-button"></button>
+
+  <audio id="background-music" loop>
+    <source src="audio/time-official-audio.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const playButton = document.getElementById('play-button');
+    const audio = document.getElementById('background-music');
+
+    playButton.addEventListener('click', () => {
+      audio.play();
+      playButton.style.display = 'none'; // Oculta el botón después de hacer clic
+    });
+  </script>
+
+  <!-- BIENVENIDOS -->
+  <div id="bienvenidos">
+    <br>
+    <h1> BIENVENIDOS A NUESTRA BODA </h1>
+
+
+    <div class="bienvenidos-texto">
+      <p>
+        ¡Nos casamos! <br> Y nos encantaría contar contigo en este día tan especial.
+      </p>
+    </div>
+
+    <!-- Cuenta atrás -->
+    <div class="cuenta-regresiva">
+      <div id="cuenta-atras">
+        <div class="tiempo">
+          <span id="dias"></span> <br> Días
+        </div>
+        <div class="barra">|</div>
+        <div class="tiempo">
+          <span id="horas"></span> <br> Horas
+        </div>
+        <div class="barra">|</div>
+        <div class="tiempo">
+          <span id="minutos"></span> <br> Min
+        </div>
+        <div class="barra">|</div>
+        <div class="tiempo">
+          <span id="segundos"></span> <br> Seg
+        </div>
+      </div>
+    </div>
+    <br>
+
+  </div>
+
+  <br>
+
+  <!-- GENERAL INFORMATION -->
+  <div id="general-information">
+
+    <h1> DESTINO </h1>
+
+    <div class="general-information-texto">
+      <p> La ceremonia tendrá lugar en "Iglesia de San Nicolás" (Plasencia) y la celebración en "Hotel Rural Villa Xarahiz" (Jaraíz de la Vera)</p>
+    </div>
+
+
+    <video autoplay loop muted playsinline>
+      <source src="videos/video-destino.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+
+    <div id="mapDiv"></div>
+
+    <br>
+
+    <h1>ITINERARIO</h1>
+
+    <div class="timeline">
+
+      <div class="event">
+        <div class="time">12:00h</div>
+        <div class="icon"><img src="images/llegada.png" alt="Llegada" /></div>
+        <div class="description">Llegada de invitados</div>
+      </div>
+
+      <div class="event">
+        <div class="time">12:30h</div>
+        <div class="icon"><img src="images/ceremonia.png" alt="Ceremonia" /></div>
+        <div class="description">Comienzo ceremonia</div>
+      </div>
+
+      <div class="event">
+        <div class="time">14:30h</div>
+        <div class="icon"><img src="images/cocktail.png" alt="Cocktail" /></div>
+        <div class="description">Apertura del Cocktail</div>
+      </div>
+
+      <div class="event">
+        <div class="time">16:00h</div>
+        <div class="icon"><img src="images/cena.png" alt="Dinner" /></div>
+        <div class="description">Inicio del banquete</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ASISTENCIA -->
+  <div id="asistencia">
+    <h1>ASISTENCIA</h1>
+
+    <div class="asistencia-texto">
+      <p>Por favor, confirma tu asistencia antes del <strong>15 de agosto</strong></p>
+      <div class="form-container-asist">
+        <form id="attendance-form">
+          <div>
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+          </div>
+          <div>
+            <label for="alergias">Alergias, intolerancias o alguna condición que debamos tener en cuenta:</label>
+            <input type="text" id="alergias" name="nombre">
+          </div>
+          <br>
+          <div>
+            <label><span id="subtitle">Transporte</span></label>
+          </div>
+          <div>
+            <input type="checkbox" id="busSi" name="tipo">
+            <label for="busSi"> Quiero autobús </label>
+            <input type="checkbox" id="busNo" name="tipo">
+            <label for="busNo"> No quiero autobús </label>
+          </div>
+          <div>
+            <label><span id="subtitle">Acompañantes</span></label>
+          </div>
+          <div>
+            <input type="checkbox" id="acompanadoNo" name="acompanado">
+            <label for="acompanadoNo">Iré solo</label>
+            <input type="checkbox" id="acompanadoSi" name="acompanado">
+            <label for="acompanadoSi">Voy acompañado</label>
+          </div>
+          <br>
+          <div>
+            <label><span id="subtitle">Elige el plato principal: </span></label>
+          </div>
+          <div>
+            <input type="checkbox" id="carne" name="comida">
+            <label for="carne"> Carne </label>
+            <input type="checkbox" id="pescado" name="comida">
+            <label for="pescado"> Pescado </label>
+          </div>
+          <!-- Pop-up -->
+          <div id="popup">
+            <h2>Añade a tus acompañantes</h2>
+            <span id="closeButton">&times;</span>
+            <button type="button" id="addAcompananteButton">Añadir Acompañante</button>
+            <div id="accompaniments-list"></div>
+            <br>
+            <button type="button" id="guardarButton">Guardar</button>
+          </div>
+
+          <br>
+
+          <div id="overlay"></div>
+          <button type="submit" id="submit">Confirmar Asistencia</button>
+          <div id="mensaje-exito-modal" class="modal">
+            <div class="modal-content">
+              <span class="close" id="cerrar-modal">&times;</span>
+              <p>Gracias por confirmar tu asistencia</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div id="info_interes">
+    <h1> INFORMACIÓN DE INTERÉS </h1>
+
+    <p> La finca cuenta con parking gratuito, y cerca de la iglesia encontraréis estas dos opciones:  </p>
+
+    <p> Parking Puente de Trujillo (gratis)</p>
+
+    <!-- Botón de Google Maps -->
+    <div class="boton-maps">
+      <a href="https://maps.app.goo.gl/sDe2mpcFDbzGUcXC9?g_st=iw" target="_blank" class="boton">
+        Cómo llegar
+      </a>
+    </div>
+
+    <p> Parking Puerta de Talavera (de pago) </p>
+
+    <!-- Botón de Google Maps -->
+    <div class="boton-maps">
+      <a href="https://maps.app.goo.gl/ELC1LBTaAfTtAsJ36?g_st=iw" target="_blank" class="boton">
+        Cómo llegar
+      </a>
+    </div>
+
+    <br><br>
+
+    <p> Aquí dejamos el contacto de nuestra Wedding Planner por si necesitáis hablar con ella por cualquier motivo. </p>
+    <div class="contacto-info">
+      <a href="https://www.instagram.com/vconb.weddings?igsh=eWZpNGo0eWw0aHFw" target="_blank">
+      <img src="images/instagram.png" alt="phone" class="rrss"> @vconb.weddings </a>
+    </div>
+
+  </div>
+
+  <br>
+
+  <img class="pre-footer" src="images/pre-footer.png" alt="Final img" />
+
+  <!-- Pie de página -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; Cristian & María 2025</p>
+    </div>
+  </footer>
+</body>

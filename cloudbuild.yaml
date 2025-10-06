@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy']
+  env:
+    - 'PROJECT_ID=${_PROJECT_ID}'
+    - 'CLOUDSDK_CORE_DISABLE_PROMPTS=1'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

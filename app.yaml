@@ -1,0 +1,22 @@
+runtime: python312
+app_engine_apis: true
+
+handlers:
+  - url: /
+    static_files: www/index.html
+    upload: www/index.html
+    http_headers:
+      Cache-Control: "no-store, no-cache, must-revalidate, max-age=0"
+      Expires: "0"
+
+  - url: /(.*)
+    static_files: www/\1
+    upload: www/(.*)
+    http_headers:
+      Cache-Control: "no-store, no-cache, must-revalidate, max-age=0"
+      Expires: "0"
+
+  # Redirección de HTTP a HTTPS
+  - url: /.*
+    script: auto
+    secure: always
