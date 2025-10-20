@@ -32,12 +32,10 @@ const x = setInterval(function () {
 
 // Función para mostrar Google Maps
 function initMap() {
-  const finca = { lat: 42.52836702538348, lng: -4.760623654961113 };
-  const center = { lat: 42.52836702538348, lng: -4.760623654961113 };
-
+  const finca = { lat: 42.52485428291155, lng: -4.761060239966541 };
   var map = new google.maps.Map(document.getElementById("mapDiv"), {
-    zoom: 6,
-    center: center,
+    zoom: 14,
+    center: finca,
     fullscreenControl: false,
     zoomControl: true,
     streetViewControl: false
