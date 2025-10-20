@@ -2,13 +2,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC0wPwNWgN8vNoufwhTwwz-ZWlWZtuQyro",
-  authDomain: "cristianymariawedding.firebaseapp.com",
-  projectId: "cristianymariawedding",
-  storageBucket: "cristianymariawedding.firebasestorage.app",
-  messagingSenderId: "767462214986",
-  appId: "1:767462214986:web:5349dcbc643fcac85805b3",
-  measurementId: "G-TXC8R5P0Z3"
+  apiKey: "AIzaSyDfeUFvfcLNbvC_eid8Ol3GgrS_NVL-dHk",
+  authDomain: "elisabetyrobertowedding.firebaseapp.com",
+  projectId: "elisabetyrobertowedding",
+  storageBucket: "elisabetyrobertowedding.firebasestorage.app",
+  messagingSenderId: "225666852747",
+  appId: "1:225666852747:web:077d450617980af289718e",
+  measurementId: "G-3YNP08MMS6"
 };
 
 // Initialize Firebase
