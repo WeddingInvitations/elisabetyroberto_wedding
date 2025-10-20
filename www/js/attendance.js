@@ -273,8 +273,8 @@ async function enviarEmail(emailData) {
   console.log("Email data: ", emailData);
   // Enviar los datos al servidor
   try {
-    const response = await fetch('https://us-central1-cristianymariawedding.cloudfunctions.ne', {
-        method: 'POST',
+    const response = await fetch('https://us-central1-elisabetyrobertowedding.cloudfunctions.net/enviarEmail', {
+        method: 'POST', 
         headers: {
             'Content-Type': 'application/json'
         },
