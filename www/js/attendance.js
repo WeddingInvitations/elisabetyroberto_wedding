@@ -105,6 +105,7 @@ function addAcompanante() {
             <option value="adulto">Niño</option>
           </select>
           <input type="text" placeholder="Alergias" class="allergies">
+          <input type="text" placeholder="¿Qué bebida quieres en la barra libre?" class="bebida">
           <br><br>
           <button id="deleteAcompananteButton">Borrar Acompañante</button>
         </div>
@@ -143,6 +144,8 @@ document.getElementById('attendance-form').addEventListener("submit", function (
   var phone = document.getElementById("telefono").value;
   var allergies = document.getElementById("alergias").value;
   var attendance = document.getElementById("acompanadoSi").checked;
+  var bebida = document.getElementById("bebida").value;
+  var cancion = document.getElementById("cancion").value;
 
   // if (type) {
   //   type = "Adulto";
@@ -167,6 +170,7 @@ document.getElementById('attendance-form').addEventListener("submit", function (
         Nombre: acompananteElement.querySelector(".name").value,
         TipoInvitado: acompananteElement.querySelector(".type").value,
         Alergias: acompananteElement.querySelector(".allergies").value,
+        Bebida: acompananteElement.querySelector(".bebida").value,
       };
 
       // acompanantes.push(acompanante);
@@ -185,7 +189,9 @@ document.getElementById('attendance-form').addEventListener("submit", function (
     Asistencia: attendance,
     Alergias: allergies,
     Bus: bus,
-    Acompañantes: acompanantes
+    Acompañantes: acompanantes,
+    Cancion: cancion,
+    Bebida: bebida
   })
     .then(function (docRef) {
       console.log("Documento agregado con ID: ", docRef.id);
@@ -199,7 +205,9 @@ document.getElementById('attendance-form').addEventListener("submit", function (
         att: attendance,
         ale: allergies,
         bus: bus,
-        gue: acompanantes
+        gue: acompanantes,
+        song: cancion,
+        drink: bebida
       };
       enviarEmail(emailData);
 
@@ -216,6 +224,9 @@ document.getElementById('attendance-form').addEventListener("submit", function (
   document.getElementById("acompanadoNo").checked = "";
   document.getElementById("busSi").checked = "";
   document.getElementById("busNo").checked = "";
+  document.getElementById("bebida").value = "";
+  document.getElementById("cancion").value = "";
+
   // document.getElementById("adulto").checked = "";
   // document.getElementById("nino").checked = "";
 
