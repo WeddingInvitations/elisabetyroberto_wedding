@@ -12,16 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var checkboxSi = document.getElementById("acompanadoSi");
   var busNo = document.getElementById("busNo");
   var busSi = document.getElementById("busSi");
-  var carne = document.getElementById("carne");
-  var pescado = document.getElementById("pescado");
 
 
   checkboxSi.addEventListener("change", habilitarCampoAcompanante);
   checkboxNo.addEventListener("change", habilitarCampoAcompanante);
   busSi.addEventListener("change", habilitarBus);
   busNo.addEventListener("change", habilitarBus);
-  carne.addEventListener("change", habilitarComida);
-  pescado.addEventListener("change", habilitarComida);
   
   // Función para habilitar el check acom y abrir pop up
   function habilitarCampoAcompanante(event) {
@@ -44,15 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
       busNo.checked = false;
     } else if (busSi.checked && event.target === busNo) {
       busSi.checked = false;
-    }
-  }
-
-  function habilitarComida(event) {
-    // Desmarcar el otro checkbox
-    if (pescado.checked && event.target === carne) {
-      pescado.checked = false;
-    } else if (carne.checked && event.target === pescado) {
-      carne.checked = false;
     }
   }
     
@@ -118,10 +105,6 @@ function addAcompanante() {
             <option value="adulto">Niño</option>
           </select>
           <input type="text" placeholder="Alergias" class="allergies">
-          <select class="comida" name="comida">
-            <option value="carne">Carne</option>
-            <option value="pescado">Pescado</option>
-          </select>
           <br><br>
           <button id="deleteAcompananteButton">Borrar Acompañante</button>
         </div>
@@ -168,13 +151,6 @@ document.getElementById('attendance-form').addEventListener("submit", function (
   // }
 
   var bus = document.getElementById("busSi").checked;
-  var comida = document.getElementById("carne").checked;
-
-  if (comida) {
-    comida = "Carne";
-  } else {
-    comida = "Pescado";
-  }
   
   // Crear un array para almacenar los acompañantes
   var acompanantes = [];
@@ -191,7 +167,6 @@ document.getElementById('attendance-form').addEventListener("submit", function (
         Nombre: acompananteElement.querySelector(".name").value,
         TipoInvitado: acompananteElement.querySelector(".type").value,
         Alergias: acompananteElement.querySelector(".allergies").value,
-        Comida: acompananteElement.querySelector(".comida").value
       };
 
       // acompanantes.push(acompanante);
@@ -210,7 +185,6 @@ document.getElementById('attendance-form').addEventListener("submit", function (
     Asistencia: attendance,
     Alergias: allergies,
     Bus: bus,
-    Comida: comida,
     Acompañantes: acompanantes
   })
     .then(function (docRef) {
@@ -225,7 +199,6 @@ document.getElementById('attendance-form').addEventListener("submit", function (
         att: attendance,
         ale: allergies,
         bus: bus,
-        comida: comida,
         gue: acompanantes
       };
       enviarEmail(emailData);
@@ -243,8 +216,6 @@ document.getElementById('attendance-form').addEventListener("submit", function (
   document.getElementById("acompanadoNo").checked = "";
   document.getElementById("busSi").checked = "";
   document.getElementById("busNo").checked = "";
-  document.getElementById("carne").checked = "";
-  document.getElementById("pescado").checked = "";
   // document.getElementById("adulto").checked = "";
   // document.getElementById("nino").checked = "";
 
