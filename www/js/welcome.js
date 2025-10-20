@@ -32,9 +32,8 @@ const x = setInterval(function () {
 
 // Función para mostrar Google Maps
 function initMap() {
-  const iglesia = { lat: 40.02869584738222, lng: -6.0931973312285495 };
-  const finca = { lat: 40.067302039087586, lng: -5.7540020233853655 };
-  const center = { lat: 40.033812146784115, lng: -5.9174911875005956 };
+  const finca = { lat: 42.52836702538348, lng: -4.760623654961113 };
+  const center = { lat: 42.52836702538348, lng: -4.760623654961113 };
 
   var map = new google.maps.Map(document.getElementById("mapDiv"), {
     zoom: 9,
@@ -42,12 +41,6 @@ function initMap() {
     fullscreenControl: false,
     zoomControl: true,
     streetViewControl: false
-  });
-
-  new google.maps.Marker ({
-    position: iglesia,
-    map,
-    title: "Santuario"
   });
 
   new google.maps.Marker ({
