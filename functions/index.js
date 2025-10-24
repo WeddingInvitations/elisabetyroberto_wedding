@@ -27,7 +27,8 @@ exports.enviarEmail = onRequest({cors: true}, async (req, res) => {
   text += `Teléfono:${ph}\n`;
   text += `Alergias:${ale}\n`;
   text += `Canción:${song}\n`;
-  text += `Bebida:${drink}\n\n`;
+  text += `Bebida:${drink}\n`;
+  text += `Transporte: ${bus}\n\n`;
 
   if (!att) {
     text += "Acompañantes: No voy acompañado\n";
@@ -39,14 +40,10 @@ exports.enviarEmail = onRequest({cors: true}, async (req, res) => {
       text += `\t\tTipo de Invitado: ${acompanante.TipoInvitado}\n`;
       text += `\t\tAlergias: ${acompanante.Alergias}\n`;
       text += `\t\tBebida: ${acompanante.Bebida}\n`;
+      text += `\t\tTransporte: ${acompanante.Bus}\n\n`;
     });
   }
 
-  if (bus) {
-    text += "Transporte: Sí, necesito transporte\n";
-  } else {
-    text += "Transporte: No necesito transporte\n";
-  }
   const email1 = "f14agui@gmail.com";
   const email2 = "angelavargasalba@gmail.com";
 
