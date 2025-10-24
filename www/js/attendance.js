@@ -221,13 +221,22 @@ document.getElementById('attendance-form').addEventListener("submit", function (
 
     for (var i = 0; i < acompananteElements.length; i++) {
       var acompananteElement = acompananteElements[i];
+
+      //lógica para obtener el valor del deslegable del bus
+      var busElement = acompananteElement.querySelector("#bus");
+      var selectedIndex = busElement.selectedIndex;
+      var selectedOption = busElement.options[selectedIndex];
+        // 4. Obtienes el texto de esa opción seleccionada
+        //    Usamos .text o .textContent (textContent es generalmente preferido)
+      var bus = selectedOption.textContent; // o selectedOption.text
+
       // Obtener los valores de los campos del acompañante actual
       var acompanante = {
         Nombre: acompananteElement.querySelector(".name").value,
         TipoInvitado: acompananteElement.querySelector(".type").value,
         Alergias: acompananteElement.querySelector(".allergies").value,
         Bebida: acompananteElement.querySelector(".bebida").value,
-        Bus: acompananteElement.querySelector("#bus").value
+        Bus: bus
       };
 
       // acompanantes.push(acompanante);
