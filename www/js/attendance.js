@@ -19,11 +19,22 @@ document.addEventListener("DOMContentLoaded", function () {
   busSi.addEventListener("change", habilitarBus);
   busNo.addEventListener("change", habilitarBus);
   
-  // Usar delegación de eventos para el botón de añadir acompañante
+  // Usar delegación de eventos para todos los botones del popup
   document.addEventListener("click", function(event) {
     if (event.target && event.target.id === "addAcompananteButton") {
       event.preventDefault();
       addAcompanante();
+    }
+    if (event.target && event.target.id === "closeButton") {
+      event.preventDefault();
+      closePopup();
+    }
+    if (event.target && event.target.id === "guardarButton") {
+      event.preventDefault();
+      closePopup();
+    }
+    if (event.target && event.target.id === "overlay") {
+      closePopup();
     }
   });
   
@@ -58,30 +69,38 @@ document.addEventListener("DOMContentLoaded", function () {
     popup.style.display = 'block';
     overlay.style.display = 'block';
     
-    // Asegurar que el botón funcione después de mostrar el popup
+    // Configurar todos los botones del popup después de mostrarlo
     var addButton = document.getElementById('addAcompananteButton');
+    var closeButton = document.getElementById('closeButton');
+    var guardarButton = document.getElementById('guardarButton');
+    
+    // Botón añadir acompañante
     if (addButton) {
-      // Remover listeners anteriores para evitar duplicados
       addButton.removeEventListener("click", addAcompanante);
       addButton.addEventListener("click", addAcompanante);
+    }
+    
+    // Botón cerrar (X)
+    if (closeButton) {
+      closeButton.removeEventListener("click", closePopup);
+      closeButton.addEventListener("click", closePopup);
+    }
+    
+    // Botón guardar
+    if (guardarButton) {
+      guardarButton.removeEventListener("click", closePopup);
+      guardarButton.addEventListener("click", closePopup);
+    }
+    
+    // También configurar click en overlay para cerrar
+    if (overlay) {
+      overlay.removeEventListener("click", closePopup);
+      overlay.addEventListener("click", closePopup);
     }
   }
 
 
-  //Función para cerrar el pop-up
-  var closeButton = document.getElementById('closeButton');
-  var guardarButton = document.getElementById('guardarButton');
-  var overlay = document.getElementById('overlay');
-  if (closeButton) {
-    closeButton.addEventListener("click", closePopup);
-    overlay.style.display = 'none';
-  }
-  if (guardarButton) {
-    guardarButton.addEventListener("click", closePopup);
-    overlay.style.display = 'none';
-  }
 });
-
 
 
 
