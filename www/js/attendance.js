@@ -104,8 +104,24 @@ function addAcompanante() {
             <option value="adulto">Adulto</option>
             <option value="adulto">Niño</option>
           </select>
+          <br>
           <input type="text" placeholder="Alergias" class="allergies">
+          <br>
           <input type="text" placeholder="¿Qué bebida quieres en la barra libre?" class="bebida">
+          <br>
+          <div>
+            <div>
+              <label><span id="subtitle">Transporte</span></label>
+            </div>
+            <select name="bus" id="bus">
+              <option value="" selected disabled>-- Elige una opción --</option> <!-- Opción por defecto, seleccionada y deshabilitada -->
+              <option value="No"> No </option>
+              <option value="Bus1"> Bus 1: Desde X </option>
+              <option value="Bus2"> Bus 2: Desde Y </option>
+              <option value="Bus3"> Bus 3: Desde Z </option>
+              <!-- Añade o quita las tallas que necesites -->
+            </select>
+          </div>
           <br><br>
           <button id="deleteAcompananteButton">Borrar Acompañante</button>
         </div>
@@ -153,7 +169,13 @@ document.getElementById('attendance-form').addEventListener("submit", function (
   //   type = "Niño";
   // }
 
-  var bus = document.getElementById("busSi").checked;
+  var busElement = document.getElementById("bus");
+
+  var selectedIndex = busElement.selectedIndex;
+  var selectedOption = busElement.options[selectedIndex];
+  // 4. Obtienes el texto de esa opción seleccionada
+  //    Usamos .text o .textContent (textContent es generalmente preferido)
+  var bus = selectedOption.textContent; // o selectedOption.text
   
   // Crear un array para almacenar los acompañantes
   var acompanantes = [];
@@ -171,6 +193,7 @@ document.getElementById('attendance-form').addEventListener("submit", function (
         TipoInvitado: acompananteElement.querySelector(".type").value,
         Alergias: acompananteElement.querySelector(".allergies").value,
         Bebida: acompananteElement.querySelector(".bebida").value,
+        Bus: acompananteElement.querySelector("#bus").value
       };
 
       // acompanantes.push(acompanante);

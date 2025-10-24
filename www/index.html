@@ -45,7 +45,7 @@
 
     <div class="bienvenidos-texto">
       <p>
-        Juntos es mejor, dejando huella
+        Dejando huella
       </p>
     </div>
 
@@ -157,10 +157,17 @@
             <label><span id="subtitle">Transporte</span></label>
           </div>
           <div>
-            <input type="checkbox" id="busSi" name="tipo">
-            <label for="busSi"> Quiero autobús </label>
-            <input type="checkbox" id="busNo" name="tipo">
-            <label for="busNo"> No quiero autobús </label>
+            <div>
+              <label><span id="subtitle">Transporte</span></label>
+            </div>
+            <select name="bus" id="bus">
+              <option value="" selected disabled>-- Elige una opción --</option> <!-- Opción por defecto, seleccionada y deshabilitada -->
+              <option value="No"> No </option>
+              <option value="Bus1"> Bus 1: Desde X </option>
+              <option value="Bus2"> Bus 2: Desde Y </option>
+              <option value="Bus3"> Bus 3: Desde Z </option>
+              <!-- Añade o quita las tallas que necesites -->
+            </select>
           </div>
           <div>
             <label><span id="subtitle">Acompañantes</span></label>
