@@ -127,6 +127,11 @@ nav {
     border-radius: 15px;
 }
 
+.information-texto {
+    color: rgb(163, 153, 142);
+    padding: 10px;
+}
+
 /* LOCATION */
 
 #general-information {
