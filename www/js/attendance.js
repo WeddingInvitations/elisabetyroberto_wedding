@@ -279,10 +279,9 @@ document.getElementById('attendance-form').addEventListener("submit", function (
   document.getElementById("alergias").value = "";
   document.getElementById("acompanadoSi").checked = "";
   document.getElementById("acompanadoNo").checked = "";
-  document.getElementById("busSi").checked = "";
-  document.getElementById("busNo").checked = "";
   document.getElementById("bebida").value = "";
   document.getElementById("cancion").value = "";
+  document.getElementById("bus").value = false;
 
   // document.getElementById("adulto").checked = "";
   // document.getElementById("nino").checked = "";
