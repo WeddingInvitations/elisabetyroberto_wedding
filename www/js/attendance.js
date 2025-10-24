@@ -134,15 +134,16 @@ function addAcompanante() {
   nuevoParrafo.innerHTML = `
         <div class="acompanante">
           <input type="text" placeholder="Nombre del Acompañante" class="name">
+          <br><br>
           <select class="type" name="tipo_acompanante[]">
             <option value="adulto">Adulto</option>
             <option value="adulto">Niño</option>
           </select>
-          <br>
+          <br><br>
           <input type="text" placeholder="Alergias" class="allergies">
-          <br>
+          <br><br>
           <input type="text" placeholder="¿Qué bebida quieres en la barra libre?" class="bebida">
-          <br>
+          <br><br>
           <div>
             <div>
               <label><span id="subtitle">Transporte</span></label>
