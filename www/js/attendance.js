@@ -19,6 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
   busSi.addEventListener("change", habilitarBus);
   busNo.addEventListener("change", habilitarBus);
   
+  // Usar delegación de eventos para el botón de añadir acompañante
+  document.addEventListener("click", function(event) {
+    if (event.target && event.target.id === "addAcompananteButton") {
+      event.preventDefault();
+      addAcompanante();
+    }
+  });
+  
   // Función para habilitar el check acom y abrir pop up
   function habilitarCampoAcompanante(event) {
     // Desmarcar el otro checkbox
@@ -49,6 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
     var overlay = document.getElementById('overlay');
     popup.style.display = 'block';
     overlay.style.display = 'block';
+    
+    // Asegurar que el botón funcione después de mostrar el popup
+    var addButton = document.getElementById('addAcompananteButton');
+    if (addButton) {
+      // Remover listeners anteriores para evitar duplicados
+      addButton.removeEventListener("click", addAcompanante);
+      addButton.addEventListener("click", addAcompanante);
+    }
   }
 
 
@@ -63,12 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (guardarButton) {
     guardarButton.addEventListener("click", closePopup);
     overlay.style.display = 'none';
-  }
-
-  // Función para añadir acompañantes
-  var addButton = document.getElementById('addAcompananteButton');
-  if (addButton) {
-    addButton.addEventListener("click", addAcompanante);
   }
 });
 
@@ -89,6 +99,11 @@ function closePopup() {
 function addAcompanante() {
   // Obtén el contenedor en el que agregarás la nueva línea
   var popupContent = document.getElementById('accompaniments-list');
+  
+  if (!popupContent) {
+    console.error("No se encontró el contenedor accompaniments-list");
+    return;
+  }
 
   // Crea un nuevo elemento de párrafo (p)
   var nuevoParrafo = document.createElement('p');
