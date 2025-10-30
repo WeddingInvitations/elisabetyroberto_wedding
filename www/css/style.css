@@ -5,7 +5,7 @@ html {
 
 /* Estilos para el texto */
 body.custom-body {
-    background-color: #ffffff;
+    background-color: #e4dddd;
     font-family: cursive, sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -113,7 +113,7 @@ nav {
 .finca-image-container {
     position: relative;
     display: inline-block;
-    border: 5px solid #d8c8b7;
+    border: 5px solid #83786c;
     /* Bordes vintage */
     border-radius: 15px;
     overflow: hidden;
@@ -128,7 +128,7 @@ nav {
 }
 
 .information-texto {
-    color: rgb(163, 153, 142);
+    color: #83786c;
     padding: 10px;
 }
 
