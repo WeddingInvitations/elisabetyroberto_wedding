@@ -167,6 +167,60 @@ nav {
 }
 
 
+/* CARROUSEL */
+
+#carrousel {
+    text-align: center;
+    padding: 20px;
+}
+
+#carrousel h1 {
+    color: #734929;
+    font-family: "Oooh Baby", cursive;
+    font-size: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.carrousel-texto p {
+    text-align: center;
+    padding: 20px;
+    padding: 10px; /* Ajusta el relleno según sea necesario */
+}
+
+
+  
+.carousel-item img{
+    height: auto; /* Ajusta la altura de las imágenes */
+    max-width: 40%;
+    object-fit: cover; /* Asegúrate de que las imágenes se escalen correctamente */
+    margin: 0 auto;
+}
+
+.carousel-caption {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+    right: 33% !important;
+    bottom: 20px;
+    left: 33% !important;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .carousel-item img{
+        height: 450px; /* Ajusta la altura de las imágenes */
+        max-width: 100%;
+    }
+
+    .carousel-caption {
+        right: 7% !important;
+        left: 7% !important;
+    }
+    
+}
 
 
 /* ITINERARIO */
@@ -225,16 +279,16 @@ nav {
 
 .event .description {
     font-size: 0.8em;
-    color: #35281d;
+    color: #83786c;
 }
 
 .event .hidden {
     font-size: 0.8em;
-    color: #35281d;
+    color: #83786c;
 }
 
 .event .description:hover {
-    color: #35281d;
+    color: #83786c;
     transition: color 0.3s ease;
 }
 
