@@ -35,6 +35,18 @@ header {
     margin-bottom: -250px;
 }
 
+#banner {
+    position: absolute;
+    top: 47%;
+    left: 64%;
+    transform: translate(-52%, -53%); /* Centra el contenido */
+    width: 156%;
+    text-align: center; /* Centra el texto */
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 200px;
+    height: 565px;
+}
+
 @media only screen and (max-width: 600px) {
     header {
         background-size: contain;
