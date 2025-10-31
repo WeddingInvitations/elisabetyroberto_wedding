@@ -47,6 +47,84 @@ header {
     height: 565px;
 }
 
+.animated-title {
+    display: inline-block; /* Permite aplicar transformaciones a cada letra */
+    font-size: 3em; /* Ajusta el tamaño según tu preferencia */
+    color: white; /* Cambia el color según lo que mejor resalte */
+    /* margin-left: -55px; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
+    margin-left: -50px;
+    margin-right: 314px;
+    margin-top: revert-layer;
+}
+
+.animated-title span {
+    display: inline-block; /* Cada letra en su propio bloque */
+    opacity: 0; /* Comienza invisible */
+    animation: slideIn 0.8s forwards; /* Aplicar la animación */
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%); /* Desde la izquierda */
+        opacity: 0;
+    }
+    50% {
+        opacity: 1; /* Totalmente visible en el centro */
+    }
+    100% {
+        transform: translateX(0); /* Posición final */
+        opacity: 1;
+    }
+}
+
+/* Retraso para cada letra */
+.animated-title span:nth-child(odd) { 
+    animation-delay: calc(0.1s * var(--i)); 
+}
+.animated-title span:nth-child(even) { 
+    animation-delay: calc(0.1s * var(--i)); 
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        background-size: cover;
+        /* background-image: url('images/header.png'); */
+        height: 300px;
+    }
+
+    #banner {
+        position: absolute;
+        top: 47%;
+        left: 64%;
+        transform: translate(-41%, -53%); /* Centra el contenido */
+        width: 166%;
+        text-align: center; /* Centra el texto */
+        background-color: rgba(0, 0, 0, 0.5); 
+        padding: 20px;
+        height: 337px;
+    }
+
+    .animated-title {
+        display: inline-block; /* Permite aplicar transformaciones a cada letra */
+        font-size: 3em; /* Ajusta el tamaño según tu preferencia */
+        color: white; /* Cambia el color según lo que mejor resalte */
+        /* margin-left: -55px; */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
+        margin-left: -50px;
+        margin-right: 314px;
+        margin-top: revert-layer;
+    }
+}
+
+nav {
+    background-color: rgb(223, 211, 195);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 @media only screen and (max-width: 600px) {
     header {
         background-size: contain;
