@@ -28,7 +28,7 @@ body.custom-body {
 
 header {
     background-size: contain;
-    background-image: url('images/portada3.png');
+    background-image: url('images/portada4.png');
     background-repeat: no-repeat;
     background-position: center;
     height: 600px;
@@ -95,14 +95,14 @@ header {
 
     #banner {
         position: absolute;
-        top: 47%;
-        left: 64%;
-        transform: translate(-41%, -53%); /* Centra el contenido */
-        width: 166%;
-        text-align: center; /* Centra el texto */
-        background-color: rgba(0, 0, 0, 0.5); 
-        padding: 20px;
-        height: 337px;
+        top: 45%;
+        left: 86%;
+        transform: translate(-48%, -50%);
+        width: 500%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, -0.5);
+        padding: 55px;
+        height: 394px;
     }
 
     .animated-title {
@@ -128,9 +128,9 @@ nav {
 @media only screen and (max-width: 600px) {
     header {
         background-size: contain;
-        background-image: url('images/portada3.png');
+        background-image: url('images/portada4.png');
         height: 600px;
-        margin-bottom: -250px;
+        margin-bottom: -165px;
     }
 }
 
