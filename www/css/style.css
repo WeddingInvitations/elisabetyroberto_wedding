@@ -50,7 +50,7 @@ header {
 .animated-title {
     display: inline-block; /* Permite aplicar transformaciones a cada letra */
     font-size: 3em; /* Ajusta el tamaño según tu preferencia */
-    color: white; /* Cambia el color según lo que mejor resalte */
+    color: #35281d; /* Cambia el color según lo que mejor resalte */
     /* margin-left: -55px; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
     margin-left: -50px;
@@ -108,7 +108,7 @@ header {
     .animated-title {
         display: inline-block; /* Permite aplicar transformaciones a cada letra */
         font-size: 3em; /* Ajusta el tamaño según tu preferencia */
-        color: white; /* Cambia el color según lo que mejor resalte */
+        color: #35281d; /* Cambia el color según lo que mejor resalte */
         /* margin-left: -55px; */
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
         margin-left: -50px;
