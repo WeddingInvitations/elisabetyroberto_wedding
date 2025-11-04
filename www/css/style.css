@@ -222,6 +222,48 @@ nav {
     padding: 10px;
 }
 
+.collage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 20px;
+}
+
+.finca-item {
+    position: relative;
+    width: 250px;
+}
+
+
+.collage-img {
+    width: 100%;
+    border-radius: 10px;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+    transform: rotate(-5deg);
+}
+
+.texto-tarjeta {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1d47a9ba;
+    color: white;
+    padding: 5px 5px;
+    font-size: 13px;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(90, 74, 66, 0.5);
+}
+
+.texto-tarjeta p {
+    margin: 0;
+}
+
 /* LOCATION */
 
 #general-information {
