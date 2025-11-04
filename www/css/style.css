@@ -229,6 +229,7 @@ nav {
     flex-wrap: wrap;
     position: relative;
     padding: 20px;
+    margin-bottom: 60px;
 }
 
 .finca-item {
@@ -246,10 +247,10 @@ nav {
 
 .texto-tarjeta {
     position: absolute;
-    bottom: -60px;
-    left: 50%;
+    bottom: -30px;
+    left: 55%;
     transform: translateX(-50%);
-    background: #1d47a9ba;
+    background: #35281db8;
     color: white;
     padding: 5px 5px;
     font-size: 13px;
