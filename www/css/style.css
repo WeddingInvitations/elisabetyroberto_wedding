@@ -35,6 +35,18 @@ header {
     margin-bottom: -250px;
 }
 
+video {
+    max-width: 400px;
+}
+
+@media only screen and (max-width: 600px) {
+    video {
+        height: 550px;
+        max-width: 100%;
+        /* Asegura que el video no se desborde */
+    }
+}
+
 #banner {
     position: absolute;
     top: 47%;
