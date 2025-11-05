@@ -163,7 +163,7 @@ nav::after {
 
 nav {
     background-color: rgb(223, 211, 195);
-    padding: 10px;
+    /* padding: 10px; */
     position: sticky;
     top: 0;
     z-index: 1000;
