@@ -159,7 +159,7 @@ nav::after {
         margin-right: 314px;
         margin-top: revert-layer; */
     /* } */
-}
+/* } */
 
 nav {
     background-color: rgb(223, 211, 195);
@@ -221,9 +221,22 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #83786c;
+    /* color: #83786c; */
     filter: opacity(0.7);
-    padding: 15px;
+    /* padding: 15px; */
+    position: sticky;
+    /* bottom: -30px; */
+    left: 55%;
+    transform: translateX(-50%);
+    background: #35281db8;
+    color: white;
+    /* padding: 5px 5px; */
+    font-size: 13px;
+    border-radius: 8px;
+    text-align: center;
+    width: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(90, 74, 66, 0.5);
 }
 
 
