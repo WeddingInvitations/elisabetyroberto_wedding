@@ -26,14 +26,14 @@ body.custom-body {
 
 /* PORTADA */
 
-header {
+/* header {
     background-size: contain;
     background-image: url('images/portada4.png');
     background-repeat: no-repeat;
     background-position: center;
     height: 600px;
     margin-bottom: -250px;
-}
+} */
 
 video {
     max-width: 400px;
@@ -44,6 +44,39 @@ video {
         height: 550px;
         max-width: 100%;
         /* Asegura que el video no se desborde */
+    }
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+a:hover {
+    color: #8f746c;
+}
+
+nav::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #464646;
+    /* Color de la línea */
+    animation: aparecerLinea 10s forwards;
+}
+
+@keyframes aparecerLinea {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
     }
 }
 
