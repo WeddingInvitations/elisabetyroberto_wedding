@@ -44,6 +44,7 @@ video {
         height: auto;
         /* max-width: 100%; */
         /* Asegura que el video no se desborde */
+        margin-bottom: -3px;
     }
 }
 
