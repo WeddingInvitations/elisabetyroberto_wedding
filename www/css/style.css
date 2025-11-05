@@ -57,7 +57,7 @@ a:hover {
     color: #8f746c;
 }
 
-nav::after {
+/* nav::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -66,11 +66,10 @@ nav::after {
     width: 100%;
     height: 5px;
     background-color: #464646;
-    /* Color de la línea */
     animation: aparecerLinea 10s forwards;
-}
+} */
 
-@keyframes aparecerLinea {
+/* @keyframes aparecerLinea {
     from {
         width: 0;
     }
@@ -78,50 +77,49 @@ nav::after {
     to {
         width: 100%;
     }
-}
+} */
 
-#banner {
+/* #banner {
     position: absolute;
     top: 47%;
     left: 64%;
-    transform: translate(-52%, -53%); /* Centra el contenido */
+    transform: translate(-52%, -53%); 
     width: 156%;
-    text-align: center; /* Centra el texto */
+    text-align: center; 
     background-color: rgba(0, 0, 0, 0.5); 
     padding: 200px;
     height: 565px;
-}
+} */
 
-.animated-title {
-    display: inline-block; /* Permite aplicar transformaciones a cada letra */
-    font-size: 3em; /* Ajusta el tamaño según tu preferencia */
-    color: #35281d; /* Cambia el color según lo que mejor resalte */
-    /* margin-left: -55px; */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
+/* .animated-title {
+    display: inline-block; 
+    font-size: 3em; 
+    color: #35281d; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
     margin-left: -50px;
     margin-right: 314px;
     margin-top: revert-layer;
-}
+} */
 
-.animated-title span {
-    display: inline-block; /* Cada letra en su propio bloque */
-    opacity: 0; /* Comienza invisible */
-    animation: slideIn 0.8s forwards; /* Aplicar la animación */
-}
+/* .animated-title span {
+    display: inline-block; 
+    opacity: 0; 
+    animation: slideIn 0.8s forwards; 
+} */
 
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%); /* Desde la izquierda */
-        opacity: 0;
+/* @keyframes slideIn {
+    0% { */
+        /* transform: translateX(-100%); */
+        /* opacity: 0;
     }
-    50% {
-        opacity: 1; /* Totalmente visible en el centro */
-    }
-    100% {
-        transform: translateX(0); /* Posición final */
-        opacity: 1;
-    }
-}
+    50% { */
+        /* opacity: 1; */
+    /* }
+    100% { */
+        /* transform: translateX(0);  */
+        /* opacity: 1;
+    } */
+/* } */
 
 /* Retraso para cada letra */
 .animated-title span:nth-child(odd) { 
