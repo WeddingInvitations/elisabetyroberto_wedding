@@ -131,14 +131,14 @@ nav::after {
     animation-delay: calc(0.1s * var(--i)); 
 }
 
-@media only screen and (max-width: 600px) {
-    header {
-        background-size: cover;
+/* @media only screen and (max-width: 600px) { */
+    /* header { */
+        /* background-size: cover; */
         /* background-image: url('images/header.png'); */
-        height: 300px;
-    }
+        /* height: 300px; */
+    /* } */
 
-    #banner {
+    /* #banner {
         position: absolute;
         top: 45%;
         left: 86%;
@@ -148,18 +148,18 @@ nav::after {
         background-color: rgba(0, 0, 0, -0.5);
         padding: 55px;
         height: 394px;
-    }
+    } */
 
-    .animated-title {
-        display: inline-block; /* Permite aplicar transformaciones a cada letra */
-        font-size: 3em; /* Ajusta el tamaño según tu preferencia */
-        color: #35281d; /* Cambia el color según lo que mejor resalte */
+    /* .animated-title { */
+        /* display: inline-block;  */
+        /* font-size: 3em;  */
+        /* color: #35281d;  */
         /* margin-left: -55px; */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
-        margin-left: -50px;
+        /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
+        /* margin-left: -50px;
         margin-right: 314px;
-        margin-top: revert-layer;
-    }
+        margin-top: revert-layer; */
+    /* } */
 }
 
 nav {
@@ -170,14 +170,14 @@ nav {
     z-index: 1000;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
     header {
         background-size: contain;
         background-image: url('images/portada4.png');
         height: 600px;
         margin-bottom: -165px;
     }
-}
+} */
 
 .post-header {
     max-width: 70%;
