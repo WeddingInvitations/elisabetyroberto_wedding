@@ -30,7 +30,7 @@ header {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 600px;
+    height: 560px;
 }
 
 video {
@@ -455,14 +455,8 @@ nav {
     width: 100px;
 }
 
-/* .event .icon {
-    margin-right: 20px;
-} */
-
 .event .icon img {
-    /* width: 30px;
-    height: 30px; */
-    max-width: 40%;
+    max-width: 30%;
 }
 
 .event .description {
