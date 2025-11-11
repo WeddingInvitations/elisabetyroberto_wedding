@@ -26,14 +26,12 @@ body.custom-body {
 
 /* PORTADA */
 
-/* header {
+header {
     background-size: contain;
-    background-image: url('images/portada4.png');
     background-repeat: no-repeat;
     background-position: center;
     height: 600px;
-    margin-bottom: -250px;
-} */
+}
 
 video {
     max-width: 400px;
@@ -613,7 +611,7 @@ nav {
 #asistencia {
     text-align: center;
     padding: 40px 20px;
-    background-color: #beb4aa;
+    background-color: #e0a495;
 }
 
 #asistencia h1 {
@@ -634,7 +632,7 @@ nav {
 
 /* Formulario */
 .form-container-asist {
-    background: #eae5e2;
+    background: #fdf5f380;
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -868,7 +866,7 @@ button#submit:active {
 
 
 footer {
-    background-color: #beb4aa;
+    background-color: #e0a495;
     padding: 10px;
     color: white;
 }
