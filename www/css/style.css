@@ -382,6 +382,7 @@ nav {
     max-width: 40%;
     object-fit: cover; /* Asegúrate de que las imágenes se escalen correctamente */
     margin: 0 auto;
+    border-radius: 15px; /* Esquinas redondeadas */
 }
 
 .carousel-caption {
@@ -401,6 +402,7 @@ nav {
     .carousel-item img{
         height: 450px; /* Ajusta la altura de las imágenes */
         max-width: 100%;
+        border-radius: 15px; /* Esquinas redondeadas para móvil */
     }
 
     .carousel-caption {
