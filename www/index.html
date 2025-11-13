@@ -53,6 +53,22 @@
       <source src="video/header_4.mp4" type="video/mp4">
     </video>
 
+    <button id="play-button"></button>
+
+    <audio id="background-music" loop>
+      <source src="audio/melendi.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+      const playButton = document.getElementById('play-button');
+      const audio = document.getElementById('background-music');
+
+      playButton.addEventListener('click', () => {
+        audio.play();
+        playButton.style.display = 'none'; // Oculta el botón después de hacer clic
+      });
+    </script>
+
   </header>
 
   <nav></nav>
