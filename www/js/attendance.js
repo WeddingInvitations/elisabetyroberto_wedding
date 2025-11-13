@@ -137,7 +137,7 @@ function addAcompanante() {
           <br><br>
           <select class="type" name="tipo_acompanante[]">
             <option value="adulto">Adulto</option>
-            <option value="adulto">Niño</option>
+            <option value="niño">Niño</option>
           </select>
           <br><br>
           <input type="text" placeholder="Alergias" class="allergies">
