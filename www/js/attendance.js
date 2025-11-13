@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Seleccionar los elementos después de que el DOM esté cargado
   var checkboxNo = document.getElementById("acompanadoNo");
   var checkboxSi = document.getElementById("acompanadoSi");
-  var busNo = document.getElementById("busNo");
-  var busSi = document.getElementById("busSi");
+  // var busNo = document.getElementById("busNo");
+  // var busSi = document.getElementById("busSi");
 
 
   checkboxSi.addEventListener("change", habilitarCampoAcompanante);
   checkboxNo.addEventListener("change", habilitarCampoAcompanante);
-  busSi.addEventListener("change", habilitarBus);
-  busNo.addEventListener("change", habilitarBus);
+  // busSi.addEventListener("change", habilitarBus);
+  // busNo.addEventListener("change", habilitarBus);
   
   // Usar delegación de eventos para todos los botones del popup
   document.addEventListener("click", function(event) {
@@ -53,14 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function habilitarBus(event) {
-    // Desmarcar el otro checkbox
-    if (busNo.checked && event.target === busSi) {
-      busNo.checked = false;
-    } else if (busSi.checked && event.target === busNo) {
-      busSi.checked = false;
-    }
-  }
+  // function habilitarBus(event) {
+  //   // Desmarcar el otro checkbox
+  //   if (busNo.checked && event.target === busSi) {
+  //     busNo.checked = false;
+  //   } else if (busSi.checked && event.target === busNo) {
+  //     busSi.checked = false;
+  //   }
+  // }
     
   // Función para abrir el pop-up al hacer clic en "Sí, voy acompañado"
   function openPopup() {
@@ -224,12 +224,18 @@ document.getElementById('attendance-form').addEventListener("submit", function (
       var acompananteElement = acompananteElements[i];
 
       //lógica para obtener el valor del deslegable del bus
+
       var busElementAcomp = acompananteElement.querySelector("#bus");
+      console.log("busElementAcomp", busElementAcomp);
       var selectedIndexAcomp = busElementAcomp.selectedIndex;
+      console.log("selectedIndexAcomp", selectedIndexAcomp);
       var selectedOptionAcomp = busElementAcomp.options[selectedIndexAcomp];
+      console.log("selectedOptionAcomp", selectedOptionAcomp);
+
         // 4. Obtienes el texto de esa opción seleccionada
         //    Usamos .text o .textContent (textContent es generalmente preferido)
       var busAcomp = selectedOptionAcomp.textContent; // o selectedOption.text
+      console.log("busAcomp", busAcomp);
 
       // Obtener los valores de los campos del acompañante actual
       var acompanante = {
