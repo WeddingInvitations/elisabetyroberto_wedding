@@ -245,7 +245,7 @@ document.getElementById('attendance-form').addEventListener("submit", function (
         Bebida: acompananteElement.querySelector(".bebida").value,
         Bus: busAcomp
       };
-      console.log("TipoInvitado", TipoInvitado);
+      console.log("TipoInvitado", acompananteElement.querySelector(".type").value);
 
       // acompanantes.push(acompanante);
       acompanantes.push(Object.assign({}, acompanante));
