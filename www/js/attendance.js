@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Seleccionar los elementos después de que el DOM esté cargado
   var checkboxNo = document.getElementById("acompanadoNo");
   var checkboxSi = document.getElementById("acompanadoSi");
-  var busNo = document.getElementById("busNo");
-  var busSi = document.getElementById("busSi");
+  // var busNo = document.getElementById("busNo");
+  // var busSi = document.getElementById("busSi");
 
 
   checkboxSi.addEventListener("change", habilitarCampoAcompanante);
   checkboxNo.addEventListener("change", habilitarCampoAcompanante);
-  busSi.addEventListener("change", habilitarBus);
-  busNo.addEventListener("change", habilitarBus);
+  // busSi.addEventListener("change", habilitarBus);
+  // busNo.addEventListener("change", habilitarBus);
   
   // Usar delegación de eventos para todos los botones del popup
   document.addEventListener("click", function(event) {
@@ -53,14 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function habilitarBus(event) {
-    // Desmarcar el otro checkbox
-    if (busNo.checked && event.target === busSi) {
-      busNo.checked = false;
-    } else if (busSi.checked && event.target === busNo) {
-      busSi.checked = false;
-    }
-  }
+  // function habilitarBus(event) {
+  //   // Desmarcar el otro checkbox
+  //   if (busNo.checked && event.target === busSi) {
+  //     busNo.checked = false;
+  //   } else if (busSi.checked && event.target === busNo) {
+  //     busSi.checked = false;
+  //   }
+  // }
     
   // Función para abrir el pop-up al hacer clic en "Sí, voy acompañado"
   function openPopup() {
@@ -137,7 +137,7 @@ function addAcompanante() {
           <br><br>
           <select class="type" name="tipo_acompanante[]">
             <option value="adulto">Adulto</option>
-            <option value="adulto">Niño</option>
+            <option value="niño">Niño</option>
           </select>
           <br><br>
           <input type="text" placeholder="Alergias" class="allergies">
@@ -151,9 +151,9 @@ function addAcompanante() {
             <select name="bus" id="bus">
               <option value="" selected disabled>-- Elige una opción --</option> <!-- Opción por defecto, seleccionada y deshabilitada -->
               <option value="No"> No </option>
-              <option value="Bus1"> Bus 1: Desde X </option>
-              <option value="Bus2"> Bus 2: Desde Y </option>
-              <option value="Bus3"> Bus 3: Desde Z </option>
+              <option value="Bus1"> Bus 1: Desde Palencia </option>
+              <option value="Bus2"> Bus 2: Desde Baltanás </option>
+              <option value="Bus3"> Bus 3: Desde Villamuriel </option>
               <!-- Añade o quita las tallas que necesites -->
             </select>
           </div>
@@ -224,12 +224,18 @@ document.getElementById('attendance-form').addEventListener("submit", function (
       var acompananteElement = acompananteElements[i];
 
       //lógica para obtener el valor del deslegable del bus
-      var busElement = acompananteElement.querySelector("#bus");
-      var selectedIndex = busElement.selectedIndex;
-      var selectedOption = busElement.options[selectedIndex];
+
+      var busElementAcomp = acompananteElement.querySelector("#bus");
+      // console.log("busElementAcomp", busElementAcomp);
+      var selectedIndexAcomp = busElementAcomp.selectedIndex;
+      // console.log("selectedIndexAcomp", selectedIndexAcomp);
+      var selectedOptionAcomp = busElementAcomp.options[selectedIndexAcomp];
+      // console.log("selectedOptionAcomp", selectedOptionAcomp);
+
         // 4. Obtienes el texto de esa opción seleccionada
         //    Usamos .text o .textContent (textContent es generalmente preferido)
-      var bus = selectedOption.textContent; // o selectedOption.text
+      var busAcomp = selectedOptionAcomp.textContent; // o selectedOption.text
+      // console.log("busAcomp", busAcomp);
 
       // Obtener los valores de los campos del acompañante actual
       var acompanante = {
@@ -237,8 +243,9 @@ document.getElementById('attendance-form').addEventListener("submit", function (
         TipoInvitado: acompananteElement.querySelector(".type").value,
         Alergias: acompananteElement.querySelector(".allergies").value,
         Bebida: acompananteElement.querySelector(".bebida").value,
-        Bus: bus
+        Bus: busAcomp
       };
+      console.log("TipoInvitado", acompananteElement.querySelector(".type").value);
 
       // acompanantes.push(acompanante);
       acompanantes.push(Object.assign({}, acompanante));
