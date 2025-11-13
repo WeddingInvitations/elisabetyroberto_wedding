@@ -151,9 +151,9 @@ function addAcompanante() {
             <select name="bus" id="bus">
               <option value="" selected disabled>-- Elige una opción --</option> <!-- Opción por defecto, seleccionada y deshabilitada -->
               <option value="No"> No </option>
-              <option value="Bus1"> Bus 1: Desde X </option>
-              <option value="Bus2"> Bus 2: Desde Y </option>
-              <option value="Bus3"> Bus 3: Desde Z </option>
+              <option value="Bus1"> Bus 1: Desde Palencia </option>
+              <option value="Bus2"> Bus 2: Desde Baltanás </option>
+              <option value="Bus3"> Bus 3: Desde Villamuriel </option>
               <!-- Añade o quita las tallas que necesites -->
             </select>
           </div>
