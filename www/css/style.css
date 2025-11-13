@@ -6,10 +6,10 @@ html {
 /* Estilos para el texto */
 body.custom-body {
     background-color: #fcc5b8;
-    font-family: 'Oooh Baby';
-    font-optical-sizing: auto;
-    font-weight: 300;
+    font-family: "Delius", cursive;
+    font-weight: 400;
     font-style: normal;
+    font-optical-sizing: auto;
     margin-bottom: 50px;
     margin: 0;
     padding: 0;
@@ -108,34 +108,35 @@ nav::after {
 
 /* @keyframes slideIn {
     0% { */
-        /* transform: translateX(-100%); */
-        /* opacity: 0;
+/* transform: translateX(-100%); */
+/* opacity: 0;
     }
     50% { */
-        /* opacity: 1; */
-    /* }
+/* opacity: 1; */
+/* }
     100% { */
-        /* transform: translateX(0);  */
-        /* opacity: 1;
+/* transform: translateX(0);  */
+/* opacity: 1;
     } */
 /* } */
 
 /* Retraso para cada letra */
-.animated-title span:nth-child(odd) { 
-    animation-delay: calc(0.1s * var(--i)); 
+.animated-title span:nth-child(odd) {
+    animation-delay: calc(0.1s * var(--i));
 }
-.animated-title span:nth-child(even) { 
-    animation-delay: calc(0.1s * var(--i)); 
+
+.animated-title span:nth-child(even) {
+    animation-delay: calc(0.1s * var(--i));
 }
 
 /* @media only screen and (max-width: 600px) { */
-    /* header { */
-        /* background-size: cover; */
-        /* background-image: url('images/header.png'); */
-        /* height: 300px; */
-    /* } */
+/* header { */
+/* background-size: cover; */
+/* background-image: url('images/header.png'); */
+/* height: 300px; */
+/* } */
 
-    /* #banner {
+/* #banner {
         position: absolute;
         top: 45%;
         left: 86%;
@@ -147,16 +148,16 @@ nav::after {
         height: 394px;
     } */
 
-    /* .animated-title { */
-        /* display: inline-block;  */
-        /* font-size: 3em;  */
-        /* color: #35281d;  */
-        /* margin-left: -55px; */
-        /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
-        /* margin-left: -50px;
+/* .animated-title { */
+/* display: inline-block;  */
+/* font-size: 3em;  */
+/* color: #35281d;  */
+/* margin-left: -55px; */
+/* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
+/* margin-left: -50px;
         margin-right: 314px;
         margin-top: revert-layer; */
-    /* } */
+/* } */
 /* } */
 
 nav {
@@ -196,8 +197,6 @@ nav {
 
 #bienvenidos h1 {
     color: #35281d;
-    font-family: 'Oooh Baby';
-    font-style: normal;
     font-size: 35px;
     letter-spacing: 2px;
 }
@@ -329,7 +328,6 @@ nav {
 
 #general-information h1 {
     color: #35281d;
-    font-family: 'Quattrocento', serif;
     font-size: 35px;
     letter-spacing: 2px;
 }
@@ -364,7 +362,6 @@ nav {
 
 #carrousel h1 {
     color: #35281d;
-    font-family: 'Quattrocento', serif;
     font-size: 35px;
     letter-spacing: 2px;
 }
@@ -372,22 +369,27 @@ nav {
 .carrousel-texto p {
     text-align: center;
     padding: 20px;
-    padding: 10px; /* Ajusta el relleno según sea necesario */
+    padding: 10px;
+    /* Ajusta el relleno según sea necesario */
 }
 
 
-  
-.carousel-item img{
-    height: auto; /* Ajusta la altura de las imágenes */
+
+.carousel-item img {
+    height: auto;
+    /* Ajusta la altura de las imágenes */
     max-width: 40%;
-    object-fit: cover; /* Asegúrate de que las imágenes se escalen correctamente */
+    object-fit: cover;
+    /* Asegúrate de que las imágenes se escalen correctamente */
     margin: 0 auto;
-    border-radius: 15px; /* Esquinas redondeadas */
+    border-radius: 15px;
+    /* Esquinas redondeadas */
 }
 
 .carousel-caption {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente para el texto */
     right: 33% !important;
     bottom: 20px;
     left: 33% !important;
@@ -399,17 +401,19 @@ nav {
 }
 
 @media only screen and (max-width: 600px) {
-    .carousel-item img{
-        height: 450px; /* Ajusta la altura de las imágenes */
+    .carousel-item img {
+        height: 450px;
+        /* Ajusta la altura de las imágenes */
         max-width: 100%;
-        border-radius: 15px; /* Esquinas redondeadas para móvil */
+        border-radius: 15px;
+        /* Esquinas redondeadas para móvil */
     }
 
     .carousel-caption {
         right: 7% !important;
         left: 7% !important;
     }
-    
+
 }
 
 
@@ -542,7 +546,6 @@ nav {
 
 #info_interes h1 {
     color: #35281d;
-    font-family: 'Quattrocento', serif;
     font-size: 35px;
     letter-spacing: 2px;
 }
@@ -611,7 +614,6 @@ nav {
 }
 
 #asistencia h1 {
-    font-family: 'Quattrocento', serif;
     font-size: 35px;
     color: #35281d;
     margin-bottom: 20px;
@@ -619,7 +621,6 @@ nav {
 }
 
 #asistencia p {
-    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: #555555;
     margin-bottom: 40px;
@@ -634,7 +635,6 @@ nav {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 450px;
     margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
 }
 
 .form-group {
@@ -809,9 +809,7 @@ button#submit {
     background-color: black;
     /* Azul corporativo */
     color: #ffffff;
-    font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    font-weight: 500;
     padding: 12px 40px;
     border: none;
     border-radius: 50px;
