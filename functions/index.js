@@ -44,8 +44,8 @@ exports.enviarEmail = onRequest({cors: true}, async (req, res) => {
     });
   }
 
-  const email1 = "f14agui@gmail.com";
-  const email2 = "angelavargasalba@gmail.com";
+  const email1 = "roberac88@gmail.com";
+  const email2 = "eli.db3@gmail.com";
 
   // Crear el email para Brevo
   const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
