@@ -69,16 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
     popup.style.display = 'block';
     overlay.style.display = 'block';
     
-    // Configurar todos los botones del popup después de mostrarlo
-    var addButton = document.getElementById('addAcompananteButton');
+    // Configurar solo los botones que no están manejados por delegación
     var closeButton = document.getElementById('closeButton');
     var guardarButton = document.getElementById('guardarButton');
-    
-    // Botón añadir acompañante
-    if (addButton) {
-      addButton.removeEventListener("click", addAcompanante);
-      addButton.addEventListener("click", addAcompanante);
-    }
     
     // Botón cerrar (X)
     if (closeButton) {
@@ -98,8 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
       overlay.addEventListener("click", closePopup);
     }
   }
-
-
 });
 
 
