@@ -805,6 +805,30 @@ label[for="pescado"] {
     background-color: white;
     z-index: 1000;
     width: max-content;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo personalizado para la barra de scroll del popup */
+#popup::-webkit-scrollbar {
+    width: 8px;
+}
+
+#popup::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#popup::-webkit-scrollbar-thumb {
+    background: #9DA494;
+    border-radius: 10px;
+}
+
+#popup::-webkit-scrollbar-thumb:hover {
+    background: #8B9182;
 }
 
 @media only screen and (max-width: 600px) {
@@ -818,6 +842,11 @@ label[for="pescado"] {
         background-color: white;
         z-index: 1000;
         width: 350px;
+        max-width: 90vw;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 }
 
