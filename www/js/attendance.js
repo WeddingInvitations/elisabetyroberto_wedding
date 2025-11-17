@@ -233,7 +233,7 @@ document.getElementById('attendance-form').addEventListener("submit", function (
         Cancion: acompananteElement.querySelector(".cancion").value,
         Bus: busAcomp
       };
-      console.log("TipoInvitado", acompananteElement.querySelector(".type").value);
+      // console.log("TipoInvitado", acompananteElement.querySelector(".type").value);
 
       // acompanantes.push(acompanante);
       acompanantes.push(Object.assign({}, acompanante));
