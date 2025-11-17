@@ -37,15 +37,16 @@ exports.enviarEmail = onRequest({cors: true}, async (req, res) => {
     gue.forEach((acompanante, index) => {
       text += `\tAcompañante ${index + 1}:\n`;
       text += `\t\tNombre: ${acompanante.Nombre}\n`;
-      text += `\t\tTipo de Invitado: ${acompanante.TipoInvitado}\n`;
       text += `\t\tAlergias: ${acompanante.Alergias}\n`;
       text += `\t\tBebida: ${acompanante.Bebida}\n`;
+      text += `\t\tCanción: ${acompanante.Cancion}\n`;
       text += `\t\tTransporte: ${acompanante.Bus}\n\n`;
     });
   }
 
-  const email1 = "roberac88@gmail.com";
-  const email2 = "eli.db3@gmail.com";
+  // const email1 = "roberac88@gmail.com";
+  const email1 = "f14agui@gmail.com";
+  // const email2 = "eli.db3@gmail.com";
 
   // Crear el email para Brevo
   const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
@@ -55,7 +56,7 @@ exports.enviarEmail = onRequest({cors: true}, async (req, res) => {
   };
   sendSmtpEmail.to = [
     {email: email1, name: "Rober y Eli"},
-    {email: email2, name: "Rober y Eli"},
+    // {email: email2, name: "Rober y Eli"},
   ];
   sendSmtpEmail.subject = "Nueva asistencia registrada";
   sendSmtpEmail.textContent = text;

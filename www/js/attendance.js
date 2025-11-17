@@ -126,14 +126,11 @@ function addAcompanante() {
         <div class="acompanante">
           <input type="text" placeholder="Nombre del Acompañante" class="name">
           <br><br>
-          <select class="type" name="tipo_acompanante[]">
-            <option value="adulto">Adulto</option>
-            <option value="niño">Niño</option>
-          </select>
-          <br><br>
           <input type="text" placeholder="Alergias" class="allergies">
           <br><br>
           <input type="text" placeholder="¿Qué bebida quieres en la barra libre?" class="bebida">
+          <br><br>
+          <input type="text" placeholder="¿Qué canción no puede faltar?" class="cancion">
           <br><br>
           <div>
             <div>
@@ -231,9 +228,9 @@ document.getElementById('attendance-form').addEventListener("submit", function (
       // Obtener los valores de los campos del acompañante actual
       var acompanante = {
         Nombre: acompananteElement.querySelector(".name").value,
-        TipoInvitado: acompananteElement.querySelector(".type").value,
         Alergias: acompananteElement.querySelector(".allergies").value,
         Bebida: acompananteElement.querySelector(".bebida").value,
+        Cancion: acompananteElement.querySelector(".cancion").value,
         Bus: busAcomp
       };
       console.log("TipoInvitado", acompananteElement.querySelector(".type").value);
