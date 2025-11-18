@@ -22,8 +22,6 @@ body.custom-body {
 
 
 
-
-
 /* PORTADA */
 
 header {
@@ -35,14 +33,13 @@ header {
 
 video {
     max-width: 400px;
+    display: block;
+    margin: 0 auto;
 }
 
 @media only screen and (max-width: 600px) {
     video {
         height: auto;
-        /* max-width: 100%; */
-        /* Asegura que el video no se desborde */
-        margin-bottom: -3px;
     }
 }
 
@@ -426,13 +423,6 @@ nav {
     letter-spacing: 2px;
 }
 
-#general-information video {
-    object-fit: contain;
-    overflow-clip-margin: content-box;
-    overflow: clip;
-    max-width: -webkit-fill-available;
-}
-
 .general-information-texto p {
     text-align: center;
     padding: 15px;
@@ -515,19 +505,10 @@ nav {
 
 .timeline {
     position: relative;
-    margin: 50px 0;
+    margin: 50px auto;
     padding-left: 40px;
-    border-left: 3px solid black;
-    margin-left: 660px;
-}
-
-@media only screen and (max-width: 600px) {
-    .timeline {
-        position: relative;
-        margin: 50px 0;
-        padding-left: 40px;
-        border-left: 3px solid black;
-    }
+    max-width: 600px;
+    border-left: 3px solid #35281d;
 }
 
 .event {
@@ -607,16 +588,6 @@ nav {
 .element {
     max-width: 4%;
 }
-
-@media only screen and (max-width: 600px) {
-    .timeline {
-        position: relative;
-        margin: 50px 0;
-        padding-left: 40px;
-        border-left: 3px solid #35281d;
-    }
-}
-
 
 
 
