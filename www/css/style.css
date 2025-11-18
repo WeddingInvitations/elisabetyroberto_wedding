@@ -947,16 +947,22 @@ button#submit:active {
 
 
 /* FOOTER */
-.pre-footer {
-    max-width: 80%;
-    margin: 0px 0px 0px 35px;
-}
-
 
 footer {
     background-color: #e0a495;
     padding: 10px;
     color: white;
+}
+
+.pre-footer {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .pre-footer {
+        max-width: 80%;
+    }
 }
 
 .footer-content p {
