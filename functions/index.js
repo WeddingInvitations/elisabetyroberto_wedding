@@ -9,9 +9,28 @@ admin.initializeApp();
 // Configurar Brevo/Sendinblue
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 const apiKey = apiInstance.authentications["apiKey"];
-apiKey.apiKey = process.env.BREVO_API_KEY || "your-api-key-here";
+
+// IMPORTANTE: Asegúrate de que la variable de entorno esté configurada
+if (!process.env.BREVO_API_KEY) {
+  logger.error("⚠️ BREVO_API_KEY no está configurada en las variables de entorno");
+}
+apiKey.apiKey = process.env.BREVO_API_KEY;
 
 exports.enviarEmail = onRequest({cors: true}, async (req, res) => {
+  // Manejar preflight CORS request
+  if (req.method === "OPTIONS") {
+    res.set("Access-Control-Allow-Origin", "*");
+    res.set("Access-Control-Allow-Methods", "GET, POST");
+    res.set("Access-Control-Allow-Headers", "Content-Type");
+    res.status(204).send("");
+    return;
+  }
+
+  // Configurar CORS headers
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Methods", "GET, POST");
+  res.set("Access-Control-Allow-Headers", "Content-Type");
+
   logger.info("Iniciando envío de email...", {structuredData: true});
   logger.info("Request body:", JSON.stringify(req.body, null, 2));
 
@@ -23,72 +42,88 @@ exports.enviarEmail = onRequest({cors: true}, async (req, res) => {
     return res.status(400).json({message: "Faltan datos obligatorios"});
   }
 
-  let text = `Nombre:${nm}\n`;
-  text += `Teléfono:${ph}\n`;
-  text += `Alergias:${ale}\n`;
-  text += `Canción:${song}\n`;
-  text += `Bebida:${drink}\n`;
-  text += `Transporte: ${bus}\n\n`;
+  // Validar que la API key esté configurada
+  if (!apiKey.apiKey) {
+    logger.error("BREVO_API_KEY no está configurada");
+    return res.status(500).json({
+      error: "Error de configuración del servidor",
+      message: "API key no configurada",
+    });
+  }
 
-  if (!att) {
+  let text = `Nombre: ${nm}\n`;
+  text += `Teléfono: ${ph}\n`;
+  text += `Alergias: ${ale || "Sin especificar"}\n`;
+  text += `Canción: ${song || "Sin especificar"}\n`;
+  text += `Bebida: ${drink || "Sin especificar"}\n`;
+  text += `Transporte: ${bus || "Sin especificar"}\n\n`;
+
+  if (!att || !gue || gue.length === 0) {
     text += "Acompañantes: No voy acompañado\n";
   } else {
     text += "Acompañantes:\n";
     gue.forEach((acompanante, index) => {
       text += `\tAcompañante ${index + 1}:\n`;
-      text += `\t\tNombre: ${acompanante.Nombre}\n`;
-      text += `\t\tAlergias: ${acompanante.Alergias}\n`;
-      text += `\t\tBebida: ${acompanante.Bebida}\n`;
-      text += `\t\tCanción: ${acompanante.Cancion}\n`;
-      text += `\t\tTransporte: ${acompanante.Bus}\n\n`;
+      text += `\t\tNombre: ${acompanante.Nombre || "Sin especificar"}\n`;
+      text += `\t\tAlergias: ${acompanante.Alergias || "Sin especificar"}\n`;
+      text += `\t\tBebida: ${acompanante.Bebida || "Sin especificar"}\n`;
+      text += `\t\tCanción: ${acompanante.Cancion || "Sin especificar"}\n`;
+      text += `\t\tTransporte: ${acompanante.Bus || "Sin especificar"}\n\n`;
     });
   }
 
   const email1 = "roberac88@gmail.com";
-  // const email1 = "f14agui@gmail.com";
   const email2 = "eli.db3@gmail.com";
 
   // Crear el email para Brevo
   const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
   sendSmtpEmail.sender = {
-    name: "Boda Rober y Eli",
-    email: "weddinginvitationscampfire@gmail.com", // Email más confiable
+    name: "Boda Eli y Rober",
+    email: "weddinginvitationscampfire@gmail.com", // Asegúrate que este email esté verificado en Brevo
   };
   sendSmtpEmail.to = [
-    {email: email1, name: "Rober y Eli"},
-    {email: email2, name: "Rober y Eli"},
+    {email: email1, name: "Rober"},
+    {email: email2, name: "Eli"},
   ];
-  sendSmtpEmail.subject = "Nueva asistencia registrada";
+  sendSmtpEmail.subject = "Nueva asistencia registrada - Boda Eli y Rober";
   sendSmtpEmail.textContent = text;
 
-  logger.info("Datos del email a enviar:", JSON.stringify(sendSmtpEmail, null, 2));
-
-  res.set("Access-Control-Allow-Origin", "*");
-  res.set("Access-Control-Allow-Methods", "GET, POST");
-  res.set("Access-Control-Allow-Headers", "Content-Type");
+  logger.info("Datos del email a enviar:", {
+    to: sendSmtpEmail.to,
+    subject: sendSmtpEmail.subject,
+    hasContent: !!sendSmtpEmail.textContent,
+  });
 
   try {
     logger.info("Intentando enviar email con Brevo...");
-    logger.info("API Instance:", apiInstance);
-    logger.info("API Key configurado:", apiKey.apiKey ? "SÍ" : "NO");
 
     // Enviar email con Brevo
     const result = await apiInstance.sendTransacEmail(sendSmtpEmail);
-    logger.info("Email enviado exitosamente:", JSON.stringify(result, null, 2));
-    res.status(200).json({message: "Notificación OK", messageId: result.messageId});
+    logger.info("Email enviado exitosamente:", {
+      messageId: result.messageId,
+    });
+
+    res.status(200).json({
+      message: "Notificación enviada correctamente",
+      messageId: result.messageId,
+    });
   } catch (error) {
-    logger.error("Error enviando email:", error);
-    logger.error("Error response:", error.response ? error.response.data : "No response data");
-    logger.error("Error status:", error.response ? error.response.status : "No status");
+    // LOGS HABILITADOS para debugging
+    logger.error("Error enviando email:", {
+      message: error.message,
+      response: error.response ? error.response.body : "No response body",
+      status: error.response ? error.response.status : "No status",
+    });
+
     res.status(500).json({
       error: "Error enviando notificación",
-      details: error.message,
-      brevoError: error.response ? error.response.data : null,
+      message: error.message,
+      details: error.response ? error.response.body : null,
     });
   }
 });
 
-// Nueva función para exportar invitados a Excel
+// ...existing code... (función exportarInvitados sin cambios)
 exports.exportarInvitados = onRequest({cors: true}, async (req, res) => {
   logger.info("Iniciando exportación de invitados a Excel...");
 
@@ -117,7 +152,7 @@ exports.exportarInvitados = onRequest({cors: true}, async (req, res) => {
         "Alergias": data.Alergias || "Sin alergias",
         "Bebida": data.Bebida || "",
         "Canción": data.Cancion || "",
-        "Transporte": data.Bus ? "SÍ" : "NO",
+        "Transporte": data.Bus || "NO",
         "Tiene Acompañantes": data.Asistencia ? "SÍ" : "NO",
         "Fecha Registro": data.timestamp ? new Date(data.timestamp).toLocaleDateString("es-ES") : "",
       };
@@ -132,10 +167,10 @@ exports.exportarInvitados = onRequest({cors: true}, async (req, res) => {
             "ID Documento": doc.id,
             "Tipo": `Acompañante ${index + 1}`,
             "Nombre": acompanante.Nombre || "",
-            "Teléfono": data.Teléfono || "", // Mismo teléfono que el principal
+            "Teléfono": data.Teléfono || "",
             "Alergias": acompanante.Alergias || "Sin alergias",
             "Canción": acompanante.Cancion || "",
-            "Transporte": data.Bus ? "SÍ" : "NO", // Mismo transporte
+            "Transporte": acompanante.Bus || "NO",
             "Tiene Acompañantes": "N/A",
             "Fecha Registro": data.timestamp ? new Date(data.timestamp).toLocaleDateString("es-ES") : "",
           };
@@ -175,7 +210,7 @@ exports.exportarInvitados = onRequest({cors: true}, async (req, res) => {
 
     // Configurar headers para descarga
     const fechaActual = new Date().toISOString().split("T")[0];
-    const nombreArchivo = `Invitados_Boda_Cristian_y_Maria_${fechaActual}.xlsx`;
+    const nombreArchivo = `Invitados_Boda_Eli_y_Rober_${fechaActual}.xlsx`;
 
     res.set({
       "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
